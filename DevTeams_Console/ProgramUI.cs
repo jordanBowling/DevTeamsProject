@@ -12,6 +12,8 @@ namespace DevTeams_Console
     {
         private DeveloperRepository _repo = new DeveloperRepository();
 
+        private DevTeamsRepository _teamRepo = new DevTeamsRepository();
+
         public void Run()
         {
             SeedData();
@@ -68,6 +70,7 @@ namespace DevTeams_Console
                     case "7":
                         break;
                     case "8":
+                        ViewDevTeams();
                         break;
                     case "9":
                         break;
@@ -253,8 +256,17 @@ namespace DevTeams_Console
 
         private void ViewDevTeams()
         {
-            List<DevTeams> _devTeams = new List<DevTeams>();
+            Console.Clear();
 
+            List<DevTeams> devTeams = _teamRepo.GetDevTeamsList();
+            foreach (DevTeams devTeam in devTeams)
+            {
+                Console.WriteLine($"Team Name: {devTeam.DevTeamName}\n" +
+                    $"Dev Team ID: {devTeam.DevTeamID}\n" +
+                    $"Team Members: {devTeam.TeamMembers}");
+            }
+
+            PressAnyKeyToContinue();
         }
 
 
@@ -285,6 +297,8 @@ namespace DevTeams_Console
             _repo.AddDeveloperToDirectory(sRogan);
             _repo.AddDeveloperToDirectory(pRudd);
             _repo.AddDeveloperToDirectory(tCurry);
+
+
 
             
             

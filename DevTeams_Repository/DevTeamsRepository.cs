@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DevTeams_Repository
 {
-    class DevTeamsRepository
+    public class DevTeamsRepository
     {
         public List<DevTeams> _devTeamList = new List<DevTeams>();
 
